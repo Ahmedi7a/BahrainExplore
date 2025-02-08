@@ -42,6 +42,7 @@ app.use(passUserToView);
 //====================================================
 //import controller
 const authCotroller = require('./controllers/authentication.js')
+const placeController= require('./controllers/places.js');
 
 //==================================================
 
@@ -64,7 +65,25 @@ app.post('/auth/sign-in', authCotroller.signIn)
 app.get('/auth/sign-out', authCotroller.signOut);
 
 //vip
-app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
+// app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
+app.use(isSignedIn);
+//========================================================
+// bahrain routes
+
+
+//add page
+app.get('/users/:userId/places/new', placeController.addPlacePage);
+
+//post the add
+app.post('/users/:userId/places/new', placeController.createPlace)
+
+//index page
+app.get('/users/:userId/places', placeController.index)
+
+
+
+
+
 
 
 //=============================================
