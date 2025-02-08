@@ -62,7 +62,18 @@ async function deletePlace(req,res){
 }
 
 // edit page
-
+async function edit(req,res){
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const currentPlace = currentUser.places.id(req.params.placeId)
+        res.render('places/edit.ejs', {
+            title: currentPlace.name,
+            currentPlace,
+        })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }}
 
 
 
@@ -73,5 +84,6 @@ module.exports = {
     index,
     show,
     deletePlace,
+    edit,
 
 }

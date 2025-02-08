@@ -16,10 +16,11 @@ const bahrainSchema = new mongoose.Schema({
   imgUrl: {
     type: String,
     required: true,
+    default:'https://static.vecteezy.com/system/resources/previews/003/586/230/non_2x/no-photo-sign-sticker-with-text-inscription-on-isolated-background-free-vector.jpg',
   },
   category: {
     type: String,
-    enum: ['Restaurant', 'Historical', 'Cafe', 'Mall', 'Entertainment '],
+    enum: ['Restaurant', 'Historical', 'Cafe', 'Mall', 'Entertainment'],
     required: true,
   },
 });

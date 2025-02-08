@@ -86,7 +86,8 @@ app.get('/users/:userId/places/:placeId',placeController.show)
 //delete place
 app.delete('/users/:userId/places/:placeId', placeController.deletePlace)
 
-
+//edit page
+app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 
 
 
