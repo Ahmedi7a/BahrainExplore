@@ -28,7 +28,9 @@
                     <p class="card-text"><strong>Description:</strong> <%= currentPlace.description %></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="" class="btn btn-sm btn-danger">Delete</a>
+                            <form action="/users/<%= user._id %>/places/<%= currentPlace._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>                            
                         </div>
                         <% if (currentPlace.category === 'Restaurant') { %>
                             <span class="badge bg-warning"><%= currentPlace.category %></span>

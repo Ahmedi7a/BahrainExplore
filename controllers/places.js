@@ -45,6 +45,25 @@ async function show(req, res) {
 
 }
 
+//delete app
+async function deletePlace(req,res){
+    try{
+        const currentUser= await User.findById(req.params.userId);
+        currentUser.places.id(req.params.placeId).deleteOne();
+        await currentUser.save();
+        res.redirect(`/users/${currentUser._id}/places`)
+        
+
+    }catch(err){
+        console.log(err)
+        res.redirect('/'); 
+    }
+
+}
+
+// edit page
+
+
 
 
 //=================
@@ -53,5 +72,6 @@ module.exports = {
     createPlace,
     index,
     show,
+    deletePlace,
 
 }

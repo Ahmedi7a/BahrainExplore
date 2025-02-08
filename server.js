@@ -83,6 +83,10 @@ app.get('/users/:userId/places', placeController.index)
 //show page
 app.get('/users/:userId/places/:placeId',placeController.show)
 
+//delete place
+app.delete('/users/:userId/places/:placeId', placeController.deletePlace)
+
+
 
 
 
