@@ -1,0 +1,50 @@
+<%- include('../partials/head') %>
+<div class="container custom-container" style="background-color: #f8f9fa; padding: 20px 0;">
+    <div class="container col-xxl-8 px-4 py-3">
+        <div class="row flex-lg-row-reverse align-items-center g-3 py-3">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="<%= currentPlace.imgUrl %>" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><%= currentPlace.name %> Details</h1>
+                <p class="lead">Here are the details of the place. You can edit or delete this information as needed.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="/users/<%= user._id %>/places" class="btn btn-primary btn-lg px-4 me-md-2" role="button">Go Back</a>
+                    <a href="/default-link" class="btn btn-outline-secondary btn-lg px-4" role="button">Edit Your Place</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================ -->
+<div class="container custom-card-container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+            <div class="card mt-2 shadow-sm" style="width: 30rem;">
+                <div class="card-body">
+                    <p class="card-title"><strong>Place Name:</strong> <%= currentPlace.name %></p>
+                    <p class="card-text"><strong>Location:</strong> <%= currentPlace.location %></p>
+                    <p class="card-text"><strong>Description:</strong> <%= currentPlace.description %></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                        <% if (currentPlace.category === 'Restaurant') { %>
+                            <span class="badge bg-warning"><%= currentPlace.category %></span>
+                        <% } else if (currentPlace.category === 'Historical') { %>
+                            <span class="badge bg-info"><%= currentPlace.category %></span>
+                        <% } else if (currentPlace.category === 'Cafe') { %>
+                            <span class="badge bg-secondary"><%= currentPlace.category %></span>
+                        <% } else if (currentPlace.category === 'Mall') { %>
+                            <span class="badge bg-danger"><%= currentPlace.category %></span>
+                        <% } else { %>
+                            <span class="badge bg-success"><%= currentPlace.category %></span>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>

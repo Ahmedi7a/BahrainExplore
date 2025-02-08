@@ -80,7 +80,8 @@ app.post('/users/:userId/places/new', placeController.createPlace)
 //index page
 app.get('/users/:userId/places', placeController.index)
 
-
+//show page
+app.get('/users/:userId/places/:placeId',placeController.show)
 
 
 

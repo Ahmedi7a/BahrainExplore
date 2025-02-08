@@ -19,6 +19,20 @@ form {
 form button {
     margin-top: 10px;
 }
+/* ==================================== */
+/* for show page */
+.custom-card-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px; 
+}
+
+.custom-card-container .row {
+    justify-content: center;
+    margin-left: -320px; 
+
+}
+
 
 /* .container {
     display: flex;

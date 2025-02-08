@@ -31,10 +31,27 @@ async function index(req, res) {
 
 }
 
+// show page
+async function show(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        const currentPlace= currentUser.places.id(req.params.placeId);
+
+        res.render('places/show.ejs', { title: currentPlace.name, currentPlace})
+    } catch (err) {
+        console.log(err)
+        res.redirect('/');
+    }
+
+}
+
+
+
 //=================
 module.exports = {
     addPlacePage,
     createPlace,
     index,
+    show,
 
 }
