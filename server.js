@@ -64,8 +64,9 @@ app.post('/auth/sign-in', authCotroller.signIn)
 //sign out page and kill session
 app.get('/auth/sign-out', authCotroller.signOut);
 
-//vip
-// app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
+//about
+//about us
+app.get('/users/places/about', placeController.aboutUs);
 app.use(isSignedIn);
 //========================================================
 // bahrain routes
@@ -92,8 +93,7 @@ app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 // post edit
 app.put('/users/:userId/places/:placeId',placeController.update);
 
-//about us
-app.get('/users/places/about', placeController.aboutUs);
+
 
 
 

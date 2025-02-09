@@ -1,70 +1,88 @@
+<div class="row g-0 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-7 p-4">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Welcome to Your Bahrain Travel Guide, <%= user.username %>!</h1>
+      <p class="lead">Discover and organize the best places to visit in Bahrain. From top restaurants to entertainment hotspots and cultural landmarks, plan your journey effortlessly with our easy-to-use platform.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      </div>
+    </div>
+    <div class="col-lg-5 d-flex justify-content-center align-items-center">
+        <img class="rounded-lg-3 img-fluid" src="https://i.pinimg.com/736x/45/13/89/451389fc40fdbbab7dfd180fabe2c925.jpg" alt="Bahrain skyline" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+<!-- ============================================== -->
 <div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis">Welcome to the App <%= user.username %></h1>
+    <h1 class="display-4 fw-bold text-body-emphasis">Plan Your Perfect Trip</h1>
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">
-            Easily create and organize your list of must-visit places in Bahrain. Save locations, add details, and
-            access your personalized list anytime, ensuring you never forget a spot when you visit Bahrain.
+            Create and manage your personalized list of must-visit places in Bahrain. Save your favorite restaurants, entertainment spots, and cultural destinations—all in one place.
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Register</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">About us</button>
+            <a href="/auth/sign-up" class="btn btn-primary btn-lg px-4 me-sm-3">Add a Place</a>
+            <a href="/users/places/about" class="btn btn-outline-secondary btn-lg px-4">View Your List</a>  
         </div>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">
         <div class="container px-5">
-            <img src="https://pixelz.cc/wp-content/uploads/2018/11/bahrain-flag-uhd-4k-wallpaper.jpg"
-                class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="430" height="400"
+            <img src="https://www.picpedia.org/highway-signs/images/planning.jpg"
+                class="img-fluid border rounded-3 shadow-lg mb-4" alt="Bahrain flag" width="430" height="400"
                 loading="lazy">
         </div>
     </div>
 </div>
+
 <!-- ============================================ -->
-<div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Why Visit Bahrain?</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div class="feature col">
-            <div
-                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                <img src="..." alt="">
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Entertainment</h3>
-            <p>Bahrain is a hub of entertainment, offering everything from vibrant shopping malls and luxury cinemas to
-                thrilling water parks and exciting nightlife. Whether you're looking for adventure or relaxation,
-                Bahrain has something for everyone.</p>
-            <a href="https://www.viator.com/Bahrain/d4458?m=33953&supag=1236951585182427&supsc=dat-2329109225372500&supai=77309605168910&supdv=c&supnt=nt:o&suplp=143141&supli=204&supti=dat-2329109225372500&tsem=true&supci=dat-2329109225372500&supkw=give%20me%20best%20entertainment%20to%20visit%20in%20bahrain&msclkid=5a400254515f1cf5c66365f33c1de4d0" class="icon-link">
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Look for the best places in Bahrain</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://i.pinimg.com/736x/d5/d4/bb/d5d4bb7e8a83e3cc20f3383e4ca3e5c7.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Best Restaurants in Bahrain</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+            </ul>
+            <a href="https://www.viator.com/Bahrain/d4458?m=33953&supag=1236951585182427&supsc=dat-2329109225372500&supai=77309605168910&supdv=c&supnt=nt:o&suplp=143141&supli=204&supti=dat-2329109225372500&tsem=true&supci=dat-2329109225372500&supkw=give%20me%20best%20entertainment%20to%20visit%20in%20bahrain&msclkid=5a400254515f1cf5c66365f33c1de4d0" class="icon-link" style="color: aliceblue;">
                 Explore More
                 <img src="..." alt="">
             </a>
+          </div>
         </div>
-        <div class="feature col">
-            <div
-                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                <svg class="bi" width="1em" height="1em">
-                    <use xlink:href="#people-circle"></use>
-                </svg>
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Restaurants</h3>
-            <p>Bahrain is a paradise for food lovers, boasting a rich culinary scene with a mix of traditional Bahraini
-                flavors and international cuisines. From fine dining to hidden local gems, every meal in Bahrain is a
-                delightful experience.</p>
-            <a href="https://www.bahrain-confidential.com/17-highly-recommended-restaurants-to-check-out-in-bahrain/#:~:text=Here%E2%80%99s%20the%20list%20of%20Bahrain%E2%80%99s%20Highly%20Recommended%20Restaurants,premium%204%20Star%20hotels%20and%20other%20hospitality%20experts." class="icon-link">
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://i.pinimg.com/736x/21/9c/52/219c5293d39b0b835fc6b7699bd4b3c3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Entertainment Hotspots</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+            </ul>
+            <a href="https://www.viator.com/Bahrain/d4458?m=33953&supag=1236951585182427&supsc=dat-2329109225372500&supai=77309605168910&supdv=c&supnt=nt:o&suplp=143141&supli=204&supti=dat-2329109225372500&tsem=true&supci=dat-2329109225372500&supkw=give%20me%20best%20entertainment%20to%20visit%20in%20bahrain&msclkid=5a400254515f1cf5c66365f33c1de4d0" class="icon-link" style="color: aliceblue;">
                 Explore More
                 <img src="..." alt="">
             </a>
+          </div>
         </div>
-        <div class="feature col">
-            <div
-                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                <img src="..." alt="">
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Historical Places</h3>
-            <p>Steeped in history, Bahrain is home to breathtaking forts, ancient burial mounds, and UNESCO heritage
-                sites. Explore its rich past and discover a land where tradition and modernity blend beautifully.</p>
-            <a href="https://www.timeoutbahrain.com/culture/historical-landmarks-in-bahrain" class="icon-link">
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://cdn-v2.theculturetrip.com/1200x630/wp-content/uploads/2018/06/shutterstock_508099897.webp');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Cultural & Historic Sites</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+            </ul>
+            <a href="https://www.viator.com/Bahrain/d4458?m=33953&supag=1236951585182427&supsc=dat-2329109225372500&supai=77309605168910&supdv=c&supnt=nt:o&suplp=143141&supli=204&supti=dat-2329109225372500&tsem=true&supci=dat-2329109225372500&supkw=give%20me%20best%20entertainment%20to%20visit%20in%20bahrain&msclkid=5a400254515f1cf5c66365f33c1de4d0" class="icon-link" style="color: aliceblue;">
                 Explore More
                 <img src="..." alt="">
             </a>
+          </div>
         </div>
+      </div>
     </div>
 </div>
 

@@ -86,7 +86,9 @@ async function update(req,res){
         res.redirect(`/users/${currentUser._id}/places/${req.params.placeId}`)  
       }catch(err){
         console.log(err)
-        res.redirect('/') 
+        res.render('places/errorM.ejs',{title:'error'})
+        // res.redirect('/')
+
     }
 }
 
