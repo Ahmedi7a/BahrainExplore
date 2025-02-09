@@ -1,7 +1,7 @@
 <%- include('../partials/head') %>
     <div class="container">
         <h1> Edit <%= currentPlace.name %></h1>
-        <form action="" method="POST">
+        <form action="/users/<%= user._id %>/places/<%= currentPlace._id  %>?_method=PUT" method="POST">
             <label for="name">Place Name:</label>
             <input type="text" name="name" id="name" value="<%= currentPlace.name %>">
             
@@ -9,7 +9,7 @@
             <input type="text" name="location" id="location" value="<%= currentPlace.location %>">
             
             <label for="description">Description:</label>
-            <textarea name="notes" id="description">value="<%= currentPlace.description %></textarea>
+            <textarea name="notes" id="description"><%= currentPlace.description %></textarea>
             
             <label for="imgUrl">Image:</label>
             <input type="text" name="imgUrl" id="imgUrl" value="<%= currentPlace.imgUrl %>">

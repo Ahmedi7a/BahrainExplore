@@ -89,6 +89,10 @@ app.delete('/users/:userId/places/:placeId', placeController.deletePlace)
 //edit page
 app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 
+// post edit
+app.put('/users/:userId/places/:placeId',placeController.update)
+
+
 
 
 

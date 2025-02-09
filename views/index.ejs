@@ -3,8 +3,7 @@
 
 <% if (user) { %>
 
-    <h1>Welcome to the App <%= user.username %></h1>
-
+    <%- include('partials/user') %>
  
 <% } else { %>
     <%- include('partials/guest') %>
