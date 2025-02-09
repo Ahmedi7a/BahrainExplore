@@ -16,7 +16,7 @@ const bahrainSchema = new mongoose.Schema({
   imgUrl: {
     type: String,
     required: true,
-    default:'https://static.vecteezy.com/system/resources/previews/003/586/230/non_2x/no-photo-sign-sticker-with-text-inscription-on-isolated-background-free-vector.jpg',
+    default:'https://img.freepik.com/free-vector/flat-design-no-photo-sign_23-2149257867.jpg?w=2000&t=st=1657460751~exp=1657461351~hmac=8901ac40f546dc5b5aac55488a10ecc128b2a4c4cf6d3e06be2ffdd1eb6175e2',
   },
   category: {
     type: String,

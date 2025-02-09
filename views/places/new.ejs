@@ -1,32 +1,74 @@
 <%- include('../partials/head') %>
-    <div class="container">
-        <h1> Add a new Place</h1>
-        <form action="/users/<%= user._id %>/places/new" method="POST">
-            <label for="name">Place Name:</label>
-            <input type="text" name="name" id="name">
-            
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location">
-            
-            <label for="description">Description:</label>
-            <textarea name="description" id="description"></textarea>
-            
-            <!-- <label for="imgUrl" class="form-label">Image:</label>
-            <input class="form-control" name="imgUrl" type="file" id="imgUrl" multiple /> -->
-            <label for="imgUrl">Image:</label>
-            <input type="text" name="imgUrl" id="imgUrl">
-        
-            <label for="category">Category:</label>
-            <select id="category" name="category">
-              <option value="" selected disabled></option> 
-              <option value="Restaurant">Restaurant</option> 
-              <option value="Historical">Historical Site</option>
-              <option value="Cafe">Cafe</option>
-              <option value="Mall">Mall</option>
-              <option value="Entertainment">Entertainment</option>
-            </select>
-            <!-- value is the same in the model -->
-             <button type="submit" class="btn btn-primary">Add Place</button>
-          </form>
-    </div>
+<div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
+  <div class="card shadow-sm p-3" style="max-width: 350px; width: 100%; margin-top: 30px;">
+    <h1 class="text-center mb-3">Add a new Place</h1>
+    <form action="/users/<%= user._id %>/places/new" method="POST" class="needs-validation" novalidate>
+      
+      <div class="mb-2">
+        <label for="name" class="form-label">Place Name:</label>
+        <input type="text" name="name" id="name" class="form-control" required>
+        <div class="invalid-feedback">
+          Please enter the place name.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="location" class="form-label">Location:</label>
+        <input type="text" name="location" id="location" class="form-control" required>
+        <div class="invalid-feedback">
+          Please enter the location.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="mb-2">
+        <label for="imgUrl" class="form-label">Image URL:</label>
+        <input type="text" name="imgUrl" id="imgUrl" class="form-control" required>
+        <div class="invalid-feedback">
+          Please enter an image URL.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="category" class="form-label">Category:</label>
+        <select id="category" name="category" class="form-select" required>
+          <option value="" selected disabled>Choose a category</option>
+          <option value="Restaurant">Restaurant</option>
+          <option value="Historical">Historical Site</option>
+          <option value="Cafe">Cafe</option>
+          <option value="Mall">Mall</option>
+          <option value="Entertainment">Entertainment</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a category.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-3">Add Place</button>
+    </form>
+  </div>
+</div>
+
 <%- include('../partials/footer') %>
+
+<script>
+  // from bootstrap
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>

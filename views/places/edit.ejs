@@ -1,33 +1,75 @@
 <%- include('../partials/head') %>
-    <div class="container">
-        <h1> Edit <%= currentPlace.name %></h1>
-        <form action="/users/<%= user._id %>/places/<%= currentPlace._id  %>?_method=PUT" method="POST">
-            <label for="name">Place Name:</label>
-            <input type="text" name="name" id="name" value="<%= currentPlace.name %>">
-            
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location" value="<%= currentPlace.location %>">
-            
-            <label for="description">Description:</label>
-            <textarea name="notes" id="description"><%= currentPlace.description %></textarea>
-            
-            <label for="imgUrl">Image:</label>
-            <input type="text" name="imgUrl" id="imgUrl" value="<%= currentPlace.imgUrl %>">
-        
-            <label for="category">Category:</label>
-            <select name="category" id="category">
-                <option value="" selected disabled></option>
-                <option value="Restaurant" <%= currentPlace.category === "Restaurant" ? "selected" : '' %>>Restaurant</option>
-                <option value="Historical" <%= currentPlace.category === "Historical" ? "selected" : '' %>>Historical Site</option>
-                <option value="Cafe" <%= currentPlace.category === "Cafe" ? "selected" : '' %>>Cafe</option>
-                <option value="Mall" <%= currentPlace.category === "Mall" ? "selected" : '' %>>Mall</option>
-                <option value="Entertainment" <%= currentPlace.category === "Entertainment" ? "selected" : '' %>>Entertainment</option>
-            </select>
-            
-            <!-- value is the same in the model -->
-             <button type="submit" class="btn btn-primary">Update Place</button>
-             <a href="/users/<%= user._id %>/places/<%=currentPlace._id  %>" class="btn btn-outline-secondary btn-lg px-4">Cancel</a>            
-          </form>
+<div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
+  <div class="card shadow-sm p-3" style="max-width: 300px; width: 100%; margin-top: 30px;">
+    <h1 class="text-center mb-3">Edit <%= currentPlace.name %></h1>
+    <form action="/users/<%= user._id %>/places/<%= currentPlace._id  %>?_method=PUT" method="POST" class="needs-validation" novalidate>
 
-    </div>
+      <div class="mb-2">
+        <label for="name" class="form-label">Place Name:</label>
+        <input type="text" name="name" id="name" class="form-control" value="<%= currentPlace.name %>" required>
+        <div class="invalid-feedback">
+          Please enter the place name.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="location" class="form-label">Location:</label>
+        <input type="text" name="location" id="location" class="form-control" value="<%= currentPlace.location %>" required>
+        <div class="invalid-feedback">
+          Please enter the location.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="notes" id="description" class="form-control"><%= currentPlace.description %></textarea>
+      </div>
+
+      <div class="mb-2">
+        <label for="imgUrl" class="form-label">Image URL:</label>
+        <input type="text" name="imgUrl" id="imgUrl" class="form-control" value="<%= currentPlace.imgUrl %>" required>
+        <div class="invalid-feedback">
+          Please enter an image URL.
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label for="category" class="form-label">Category:</label>
+        <select name="category" id="category" class="form-select" required>
+          <option value="" selected disabled>Choose a category</option>
+          <option value="Restaurant" <%= currentPlace.category === "Restaurant" ? "selected" : '' %>>Restaurant</option>
+          <option value="Historical" <%= currentPlace.category === "Historical" ? "selected" : '' %>>Historical Site</option>
+          <option value="Cafe" <%= currentPlace.category === "Cafe" ? "selected" : '' %>>Cafe</option>
+          <option value="Mall" <%= currentPlace.category === "Mall" ? "selected" : '' %>>Mall</option>
+          <option value="Entertainment" <%= currentPlace.category === "Entertainment" ? "selected" : '' %>>Entertainment</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a category.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-3">Update Place</button>
+      <a href="/users/<%= user._id %>/places/<%= currentPlace._id  %>" class="btn btn-outline-danger w-100 mt-3">Cancel</a>
+    </form>
+  </div>
+</div>
+
 <%- include('../partials/footer') %>
+
+<script>
+  //from bootstrap
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
