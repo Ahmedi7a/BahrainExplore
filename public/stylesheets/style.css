@@ -8,12 +8,14 @@ body {
     flex-wrap: wrap; 
     justify-content: center; 
     gap: 1rem; 
+    
 }
 
 form {
     display: flex;
     flex-direction: column;
     max-width: 40vw;
+    width: 100%;
 }
 
 form button {
