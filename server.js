@@ -90,7 +90,12 @@ app.delete('/users/:userId/places/:placeId', placeController.deletePlace)
 app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 
 // post edit
-app.put('/users/:userId/places/:placeId',placeController.update)
+app.put('/users/:userId/places/:placeId',placeController.update);
+
+//about us
+app.get('/users/places/about', placeController.aboutUs);
+
+
 
 
 

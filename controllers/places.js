@@ -90,6 +90,13 @@ async function update(req,res){
     }
 }
 
+//=============================================
+//about page
+function aboutUs(req,res){
+
+    res.render('places/about.ejs',{title:'about us'})
+}
+
 
 
 
@@ -102,5 +109,6 @@ module.exports = {
     deletePlace,
     edit,
     update,
+    aboutUs,
 
 }
