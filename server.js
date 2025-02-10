@@ -7,6 +7,7 @@ const session = require('express-session');// for session
 const MongoStore = require('connect-mongo');// to store session in mongo
 const morgan = require('morgan');
 const path = require("path");
+const upload = require("./config/multer"); // Import Multer
 const isSignedIn = require('./middelware/is-signed-in.js')
 const passUserToView=require('./middelware/pass-user-to-veiw.js')
 
@@ -76,7 +77,7 @@ app.use(isSignedIn);
 app.get('/users/:userId/places/new', placeController.addPlacePage);
 
 //post the add
-app.post('/users/:userId/places/new', placeController.createPlace)
+app.post('/users/:userId/places/new',upload.single("imgUrl"), placeController.createPlaces)
 
 //index page
 app.get('/users/:userId/places', placeController.index)
@@ -91,7 +92,7 @@ app.delete('/users/:userId/places/:placeId', placeController.deletePlace)
 app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 
 // post edit
-app.put('/users/:userId/places/:placeId',placeController.update);
+app.put('/users/:userId/places/:placeId',upload.single("imgUrl"),placeController.updatess);
 
 
 

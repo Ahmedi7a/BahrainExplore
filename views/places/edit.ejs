@@ -2,7 +2,7 @@
 <div class="container d-flex justify-content-center align-items-start" style="min-height: 80vh;">
   <div class="card shadow-sm p-3" style="max-width: 300px; width: 100%; margin-top: 30px;">
     <h1 class="text-center mb-3">Edit <%= currentPlace.name %></h1>
-    <form action="/users/<%= user._id %>/places/<%= currentPlace._id  %>?_method=PUT" method="POST" class="needs-validation" novalidate>
+    <form action="/users/<%= user._id %>/places/<%= currentPlace._id  %>?_method=PUT" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
 
       <div class="mb-2">
         <label for="name" class="form-label">Place Name:</label>
@@ -27,11 +27,17 @@
 
       <div class="mb-2">
         <label for="imgUrl" class="form-label">Image URL:</label>
-        <input type="text" name="imgUrl" id="imgUrl" class="form-control" value="<%= currentPlace.imgUrl %>" required>
+        <input type="file" name="imgUrl" accept="image/*" id="imgUrl" class="form-control" value="<%= currentPlace.imgUrl.url %>">
         <div class="invalid-feedback">
           Please enter an image URL.
         </div>
       </div>
+      <% if (currentPlace.imgUrl) { %>
+        <div style="display: flex; align-items: center;">
+            <img src="<%= currentPlace.imgUrl.url %>" alt="Current Image" width="35" >
+            <small style="margin-left: 5px;">This is the current photo</small>
+        </div>
+    <% } %>
 
       <div class="mb-2">
         <label for="category" class="form-label">Category:</label>

@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const cloudinary = require("../config/cloudinary") // require Cloudinary in the controller file
+
 
 //show add page
 function addPlacePage(req, res) {
@@ -99,6 +101,61 @@ function aboutUs(req,res){
     res.render('places/about.ejs',{title:'about us'})
 }
 
+//===================================
+async function createPlaces(req, res) {
+    try {
+        console.log(req.body);
+        console.log(req.file);
+
+        const currentUser = await User.findById(req.params.userId);
+
+        const newPlace = {
+            name: req.body.name,
+            location: req.body.location,
+            description: req.body.description,
+            category: req.body.category,
+            imgUrl: req.file
+                ? { url: req.file.path, cloudinary_id: req.file.filename }
+                : null, 
+        };
+
+        currentUser.places.push(newPlace);
+        await currentUser.save();
+
+        res.redirect(`/users/${currentUser._id}/places`);
+    } catch (err) {
+        console.log(err);
+        res.redirect('/');
+    }
+}
+
+async function updatess(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        const currentPlace = currentUser.places.id(req.params.placeId);
+
+        // this is when i upolad new it delete the old one in cloud
+        if (req.file) {
+            if (currentPlace.imgUrl && currentPlace.imgUrl.cloudinary_id) {
+                await cloudinary.uploader.destroy(currentPlace.imgUrl.cloudinary_id); 
+            }
+            // assign new image 
+            req.body.imgUrl = {
+                url: req.file.path,
+                cloudinary_id: req.file.filename,
+            };
+        }
+
+        currentPlace.set(req.body);
+        await currentUser.save();
+
+        res.redirect(`/users/${currentUser._id}/places/${req.params.placeId}`);
+    } catch (err) {
+        console.log(err);
+        res.redirect('/');
+    }
+}
+
 
 
 
@@ -112,5 +169,7 @@ module.exports = {
     edit,
     update,
     aboutUs,
+    createPlaces, //
+    updatess, //
 
 }
