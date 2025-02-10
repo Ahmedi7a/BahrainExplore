@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt"); //hash password
 
 // (/)
 async function home(req, res) {
-    res.render("index.ejs", { title: 'My App' });
+    res.render("index.ejs", { title: 'My App',});
 };
 
 //sign up page
