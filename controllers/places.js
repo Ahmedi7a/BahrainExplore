@@ -25,7 +25,7 @@ async function createPlace(req, res) {
 async function index(req, res) {
     try {
         const currentUser = await User.findById(req.params.userId);
-        res.render('places/index.ejs', { title: 'All Places', places: currentUser.places, })
+        res.render('places/index.ejs', { title: 'All Places', places: currentUser.places.slice().reverse(), })
     } catch (err) {
         console.log(err)
         res.redirect('/');
@@ -102,6 +102,7 @@ function aboutUs(req,res){
 }
 
 //===================================
+// post add upload
 async function createPlaces(req, res) {
     try {
         console.log(req.body);
@@ -129,6 +130,7 @@ async function createPlaces(req, res) {
     }
 }
 
+// update post upload
 async function updatess(req, res) {
     try {
         const currentUser = await User.findById(req.params.userId);
@@ -169,7 +171,6 @@ module.exports = {
     edit,
     update,
     aboutUs,
-    createPlaces, //
-    updatess, //
-
+    createPlaces, 
+    updatess, 
 }
