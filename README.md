@@ -16,7 +16,7 @@ https://project2-ga-app-6b7a1f2ee6e2.herokuapp.com/
 * Sign Up / Sign In to access personalized features.
 * Home (User) Page displays a customized experience.
 * Community Page to explore places shared by others.
-* Upload image insted of putting a linl.
+* Upload image insted of putting a link.
 * Add a Place to save locations of interest.
 * Show All Your Places in an organized list.
 * Place Details Page for in-depth information on each saved location.
