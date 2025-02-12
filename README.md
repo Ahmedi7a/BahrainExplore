@@ -68,7 +68,7 @@ The user can see the old info.
 # Future Work
 
 * Add a download button that if the user press it, it downloads the page as a pdf to share it with others.
-* Add sorting by category.
+* Add filter by category.
 * Add API for the location part in the form.
 
 
