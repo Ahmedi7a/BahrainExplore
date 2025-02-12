@@ -6,6 +6,9 @@ BahrainExplore is a simple web application that allows users to create and store
 ## Planing and requirments:
 https://trello.com/b/rCjMuhL2/project-2-planning-bahrainvisit
 
+## Try The App:
+https://project2-ga-app-6b7a1f2ee6e2.herokuapp.com/
+
 ### Features:
 
 * View the Home (Guest) Page with general information.
