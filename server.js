@@ -44,6 +44,7 @@ app.use(passUserToView);
 //import controller
 const authCotroller = require('./controllers/authentication.js')
 const placeController= require('./controllers/places.js');
+const userController= require('./controllers/users.js')
 //==================================================
 //home page
 app.get('/', authCotroller.home);
@@ -66,6 +67,11 @@ app.get('/auth/sign-out', authCotroller.signOut);
 //about
 //about us
 app.get('/users/places/about', placeController.aboutUs);
+
+//community
+app.get('/users', userController.index);
+app.get('/users/:userId',userController.show);
+
 app.use(isSignedIn);
 //========================================================
 // bahrain routes
@@ -89,6 +95,8 @@ app.get('/users/:userId/places/:placeId/edit', placeController.edit);
 
 // post edit
 app.put('/users/:userId/places/:placeId',upload.single("imgUrl"),placeController.updatess);
+
+
 
 //=============================================
 app.listen(process.env.PORT || 3000, () => {

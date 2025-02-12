@@ -1,0 +1,34 @@
+<%- include('../partials/head') %>
+<div class="container">
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Join the Community</h1>
+                <p class="lead text-body-secondary">Explore not only the places you've saved but also see where others are planning to visit in Bahrain! Our community of explorers and locals shares their top locations, hidden gems, and favorite spots. Get inspired by others' journeys, discover new places, and be part of a vibrant network of people passionate about experiencing the best Bahrain has to offer!</p>
+            </div>
+        </div>
+    </section>
+      
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% users.forEach(user => { %>
+                    <div class="col">
+                        <div class="card mt-2 shadow-sm" style="width: 18rem;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><%= user.username %></h5>
+                                <div class="d-flex justify-content-center">
+                                    <div class="btn-group">
+                                        <a href="/users/<%= user._id %>" class="btn btn-sm btn-outline-secondary">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    
+<%- include('../partials/footer') %>
+
